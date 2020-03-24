@@ -1,5 +1,5 @@
 /**
- * FileName: SpaiderUtils
+ * FileName: SpaiderUtilsJAVA
  * Author:   郭经伟
  * Date:     2020/3/23 21:49
  * Description:
@@ -21,22 +21,22 @@ import java.util.Comparator;
 import java.util.*;
 
 //工具类
-public class SpaiderUtils {
+public class SpaiderUtilsJAVA {
 
     //配置环境
     public static void initProperties() {
 
         //判断当前是什么操作系统
         switch (OSInfo.getOSType()) {
-            //通过类加载器获取类路径下的chromedriver
+            //通过类加载器获取类路径下的chrome driver
             case WINDOWS:
-                System.setProperty("webdriver.chrome.driver", SpaiderUtils.class.getClassLoader().getResource("chromedriver_win32.exe").getPath());
+                System.setProperty("webdriver.chrome.driver", SpaiderUtilsJAVA.class.getClassLoader().getResource("chromedriver_win32.exe").getPath());
                 break;
             case LINUX:
-                System.setProperty("webdriver.chrome.driver", SpaiderUtils.class.getClassLoader().getResource("chromedriver_linux64").getPath());
+                System.setProperty("webdriver.chrome.driver", SpaiderUtilsJAVA.class.getClassLoader().getResource("chromedriver_linux64").getPath());
                 break;
             case MACOSX:
-                System.setProperty("webdriver.chrome.driver", SpaiderUtils.class.getClassLoader().getResource("chromedriver_mac64").getPath());
+                System.setProperty("webdriver.chrome.driver", SpaiderUtilsJAVA.class.getClassLoader().getResource("chromedriver_mac64").getPath());
                 break;
             default:
                 throw new RuntimeException("不支持当前的操作系统类型");
@@ -47,9 +47,9 @@ public class SpaiderUtils {
     public static void choseOptions(WebDriver webDriver) {
 
         //选择城市
-        String cityName = "成都";
-        WebElement cityAuthorElement = webDriver.findElement(By.xpath("//div[@class='other-hot-city']//a[contains(text(),'" + cityName + "')]"));
-        cityAuthorElement.click();
+//        String cityName = "成都";
+//        WebElement cityAuthorElement = webDriver.findElement(By.xpath("//div[@class='other-hot-city']//a[contains(text(),'" + cityName + "')]"));
+//        cityAuthorElement.click();
         // 选择工作经验
         // 不限 应届毕业生 3年及以下 3-5年 5-10年 10年以上 不要求
         choseByTitle(webDriver, "5-10年", "工作经验");
